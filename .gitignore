@@ -2,3 +2,7 @@ c_expr
 CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake
+Makefile
+c_expr_driver
+c_expr_test
+libc_expr.so
