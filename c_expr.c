@@ -7,8 +7,13 @@ extern int isalnum(int);
 extern void* memset( void*, int , unsigned long long );
 extern char* strcpy( char*, const char*);
 extern int strcmp(const char*, const char*);
+extern void exit(int);
 
-#include <assert.h>
+void assert( int expr ){
+        if( ! expr ){
+                exit(1);
+        }
+}
 
 /*
    accepts string of the grammar
@@ -794,6 +799,13 @@ int self_test(){
         #endif
 }
 
+typedef enum RuntimeFlag{
+        RuntimeFlag_debug = 1
+}RuntimeFlag;
+
+typedef struct DriverContext{
+        unsigned flags;
+}DriverContext;
 
 int main(int argc, char** argv){
         if( argc == 3 && strcmp(argv[1],"-c") == 0 ){
